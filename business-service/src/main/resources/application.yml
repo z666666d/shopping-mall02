@@ -1,0 +1,25 @@
+server:
+  port: 2001
+
+spring:
+  application:
+    name: business-service
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: my_tx_group #自定义事务组名称需要与seata-server中的对应
+    nacos:
+      discovery:
+        server-addr: 192.168.17.102:8848
+
+feign:
+  hystrix:
+    enabled: false
+
+logging:
+  level:
+    io:
+      seata: info
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
